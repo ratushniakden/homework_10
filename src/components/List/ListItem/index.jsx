@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styles from './ListItem.module.css';
 import Icon from '@mdi/react';
 import { mdiDelete, mdiDeleteEmpty } from '@mdi/js';
+import UserAvatar from './UserAvatar';
+import UserInfo from './UserInfo';
 
 class ListItem extends Component {
   constructor(props) {
@@ -33,11 +35,8 @@ class ListItem extends Component {
 
     return (
       <li style={selectionStyle} onClick={this.handleSelect}>
-        <img src={avatar} alt="userAvatar" />
-        <span>
-          <h1>{name}</h1>
-          <p>{tagline}</p>
-        </span>
+        <UserAvatar avatar={avatar} />
+        <UserInfo name={name} tagline={tagline} />
         <button onClick={this.handleDelete}>
           <Icon path={mdiDelete} size={2} />
         </button>
